@@ -4,6 +4,13 @@ import random
 def password_generator(choice):
     random_password = ''
     new_set = """@#$%^&*1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ{}[]()/\\'"`~,;:.<>"""
+
+    excluded_chars = input("Enter the characters you want to exclude (leave blank to include all characters): ")
+
+    # Remove excluded characters from the set of available characters
+    for char in excluded_chars:
+        new_set = new_set.replace(char, '')
+
     if choice == 1:
         for i in range(0, 4):
             chosen_letter = random.choice(new_set)
